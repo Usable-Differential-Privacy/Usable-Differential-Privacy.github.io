@@ -1,15 +1,13 @@
 ---
-layout: default
-title: Research Projects
+title: Research
+eyebrow: What we study
+intro: Differential privacy offers rigorous protection for individuals whose data are used in analysis. Deploying it responsibly also requires people to configure it correctly, understand what its parameters mean, and communicate the resulting protections accurately. Our research combines usable privacy, human-computer interaction, differential privacy, and formal methods to help make privacy-preserving systems understandable, accountable, and practical.
+permalink: /research.html
 ---
 
-<div class="card-columns">
-    {% comment %}
-    Sort the projects by date, putting those without dates last
-    {% endcomment %}
-    {% assign projects_by_date = site.projects | sort: 'last-updated', 'first' %}
-    {% assign projects_by_date = projects_by_date | reverse %}
-    {% for p in projects_by_date %}
-        {% include project-card.html project=p %}
-    {% endfor %}
+<div class="research-themes">
+  {% assign research_sections = site.research | sort: 'order' %}
+  {% for section in research_sections %}
+    {% include research-section.html section=section %}
+  {% endfor %}
 </div>

@@ -1,0 +1,17 @@
+- id: nsf-2336550
+  number: "2336550"
+  short_title: Effective and Accountable Communication of Differential Privacy
+  title: "SaTC: CORE: Small: A Novel Mechanism for Effective and Accountable Communication of Differential Privacy through Multi-Stakeholder Research"
+  investigators: Yuanyuan Feng (PI) and Joseph Near (Co-PI)
+  period: 2024–2027
+  url: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2336550
+  description: This project combines multi-stakeholder research, formal verification, and software development to create a standardized and accountable differential privacy certificate.
+
+- id: nsf-2238442
+  number: "2238442"
+  short_title: Distributed Differential Privacy via Secure Multiparty Computation
+  title: "CAREER: Distributed Differential Privacy via Secure Multiparty Computation"
+  investigators: Joseph Near (PI)
+  period: 2023–2028
+  url: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2238442
+  description: This related project develops correct, secure, and scalable differential privacy systems that do not require a trusted central data curator.

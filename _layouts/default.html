@@ -1,80 +1,70 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>{{ site.name }}: {{ page.title }}</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-              crossorigin="anonymous">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{ site.base }}/css/group.css">
-    </head>
-    <body>
-        <div class="container">
-            <!-- This is a bit nasty, but it basically says be a column first, and on larger screens be a spaced out row -->
-            <div class="header d-flex
-                        flex-column
-                        flex-md-row justify-content-md-between">
-                <a href="{{ site.base }}/" class="">
-                    <img src="{{ site.base }}/img/logo.png"
-                         srcset="{{ site.base }}/img/logo@2x.png 2x"
-                         alt="Awesome" id="logo">
-                </a>
-                <ul class="nav nav-pills justify-content-center">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <meta name="theme-color" content="#154734">
+    <title>{% if page.title and page.title != "Home" %}{{ page.title }} · {% endif %}{{ site.name }}</title>
+    <link rel="stylesheet" href="{{ '/css/group.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-                    {% assign shorturl = page.url | replace:'.html','' | replace:'index','' %}
-                    {% for item in site.navigation %}
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.name }} home">
+          <img
+            class="brand-mark"
+            src="{{ '/img/usable-differential-privacy-mark.png' | relative_url }}"
+            width="46"
+            height="46"
+            alt=""
+            aria-hidden="true">
+          <span class="brand-copy">
+            <strong>Usable Differential Privacy</strong>
+            <small>University of Vermont</small>
+          </span>
+        </a>
 
-                        {% assign itemshorturl = item.link | replace:'.html','' %}
+        <nav aria-label="Primary navigation">
+          <ul class="site-nav">
+            {% assign current_url = page.url | replace: 'index.html', '' %}
+            {% for item in site.navigation %}
+              {% assign item_url = item.link | replace: 'index.html', '' %}
+              {% assign active = false %}
+              {% if current_url == item_url %}{% assign active = true %}{% endif %}
+              <li>
+                <a href="{{ item.link | relative_url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-                        {% assign maybe-active = '' %}
-                        {% if item.title == 'Research' and page.layout == 'project' %}
-                            {% assign maybe-active = 'active' %}
-                        {% endif %}
-                        {% if itemshorturl == shorturl or is-research %}
-                            {% assign maybe-active = 'active' %}
-                        {% endif %}
+    <main id="main-content" class="shell page-content">
+      {% unless page.notitle %}
+        <header class="page-heading">
+          {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+          <h1>{{ page.title }}</h1>
+          {% if page.intro %}<p class="page-intro">{{ page.intro }}</p>{% endif %}
+        </header>
+      {% endunless %}
+      {{ content }}
+    </main>
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ maybe-active }}"
-                               href="{{ site.base }}{{ item.link }}">
-                                {{ item.title }}
-                            </a>
-                        </li>
-
-                    {% endfor %}
-
-                </ul>
-            </div>
-
-            {% if page.image %}
-                <img src="{{ page.image }}"
-                     alt="{{ page.title }}"
-                     style="max-width: 400px"
-                     class="img-fluid mx-auto d-block mb-4"/>
-            {% endif %}
-
-            {% if page.notitle != true %}
-                <h1>{{ page.title }}</h1>
-            {% endif %}
-
-            {{ content }}
-
-            <div class="footer">
-                <p>
-                    <a href="http://dept.example.edu/">Illustrious Department</a>
-                    at the
-                    <a href="http://example.edu/">University of Example</a>
-                </p>
-            </div>
-
-        </div> <!-- /container -->
-
-        <!-- Support retina images. -->
-        <script type="text/javascript"
-                src="{{ site.base }}/js/srcset-polyfill.js"></script>
-    </body>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <strong>Usable Differential Privacy at UVM</strong>
+          <p>Human-centered privacy research at the University of Vermont.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.uvm.edu/">University of Vermont</a>
+          <a href="https://github.com/Usable-Differential-Privacy">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

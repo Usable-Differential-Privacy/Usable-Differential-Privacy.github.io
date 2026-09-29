@@ -1,0 +1,25 @@
+{% assign section = include.section %}
+<section class="research-theme research-theme--{{ section.variant | default: 'primary' }}" aria-labelledby="{{ section.anchor }}">
+  <div class="research-theme-label">
+    <span aria-hidden="true">{{ section.number }}</span>
+    <p class="eyebrow">{{ section.eyebrow }}</p>
+  </div>
+  <div class="research-theme-content">
+    <h2 id="{{ section.anchor }}">{{ section.title }}</h2>
+    {% if section.lead %}<p class="theme-question">{{ section.lead }}</p>{% endif %}
+    <div class="research-prose">{{ section.content }}</div>
+
+    {% if section.publication_ids %}
+      <div class="research-evidence" aria-label="Selected work">
+        <p class="research-evidence-label">Selected work</p>
+        {% for publication_id in section.publication_ids %}
+          {% assign publication = site.data.publications | where: 'id', publication_id | first %}
+          {% if publication %}
+            {% include publication-citation.html publication=publication %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>

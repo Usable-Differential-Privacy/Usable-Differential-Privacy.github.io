@@ -1,49 +1,18 @@
-
 {% assign person = include.person %}
-
-{% comment %}
-
-Usage:
-
-{% for item in site.data.people %}
-    {% assign person = item[1] %}
-    {% if person.role == role.key %}
-        {% include person.html person=person image=true %}
+<article class="person-card">
+  {% include person-image.html person=person %}
+  <div class="person-details">
+    <h3>{{ person.display_name }}</h3>
+    {% if person.title %}<p class="person-title">{{ person.title }}</p>{% endif %}
+    {% if person.institution %}<p class="person-institution">{{ person.institution }}</p>{% endif %}
+    {% if person.bio %}<p>{{ person.bio }}</p>{% endif %}
+    {% if person.interests %}<p class="person-interests"><strong>Interests:</strong> {{ person.interests }}</p>{% endif %}
+    {% if person.links %}
+      <ul class="person-links" aria-label="Links for {{ person.display_name }}">
+        {% for link in person.links %}
+          <li><a href="{{ link.url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.label }} (opens in a new tab)">{{ link.label }} <span aria-hidden="true">↗</span></a></li>
+        {% endfor %}
+      </ul>
     {% endif %}
-{% endfor %}
-
-Use the image parameter to include or not include an image.
-
-Note that pl-0 just removes the left padding from the name part that is put
-there by default by Bootstrap columns.
-
-{% endcomment %}
-
-{% if person.webpage %}
-    {% capture name %}
-        <a href="{{ person.webpage | escape }}"> {{ person.display_name }} </a>
-    {% endcapture %}
-{% else %}
-    {% assign name = person.display_name %}
-{% endif %}
-
-{% if include.image %}
-    <div class="person person-with-image row align-items-center">
-        <div class="col-auto">
-            {% include person-image.html person=person %}
-        </div>
-        <div class="col pl-0">
-            <h6 class="person-name"> {{ name }} </h6>
-            {% if person.bio %}
-                <div class="bio">{{person.bio}}</div>
-            {% endif %}
-        </div>
-    </div>
-{% else %}
-    <div class="person person-without-image">
-        {{ name }}
-        {% if person.bio %}
-            <span class="bio">{{person.bio}}</span>
-        {% endif %}
-    </div>
-{% endif %}
+  </div>
+</article>

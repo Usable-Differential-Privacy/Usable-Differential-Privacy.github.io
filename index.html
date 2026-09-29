@@ -1,76 +1,70 @@
 ---
-layout: default
 title: Home
 notitle: true
-
-# groups of columns of {roles: list, width: num, image: bool}
-role-tables:
-- - roles: [faculty, postdoc, staff]
-    width: 4
-    image: true
-  - roles: [grad]
-    width: 8
-    image: true
-- - roles: [collab, ugrad, ugrad-alum]
-    width: 5
-    image: false
-  - roles: [alum]
-    width: 7
-    image: false
-
+description: Usable Differential Privacy at UVM brings human-centered methods to the design and deployment of differential privacy.
 ---
 
-<div class="jumbotron">
-   <p>
-        The <b>Usable Differential Privacy Group</b> focuses on human-centered privacy mechanisms. 
-        Through the <b>DP Label Project</b>, we design intuitive privacy labels, visualizers, and interfaces 
-        to help users and developers understand and calibrate differential privacy guarantees.
-    </p>
-</div>
-
-<section>
-    <h2>News</h2>
-    <ul class="news list-unstyled">
-        {% for post in site.posts limit: site.front_page_news %}
-            {% include news-item.html item=post %}
-        {% endfor %}
-    </ul>
-    {% assign numposts = site.posts | size %}
-    {% if numposts >= 1 %}
-        <p>
-            <span class="fa fa-fw fa-history"></span>
-            <a href="{{ site.base }}/blog.html">Older posts&hellip;</a>
-        </p>
-    {% endif %}
-</section>
-
-<section>
-    <h2>Research</h2>
-    <div class="card-columns">
-        {% comment %}
-        Sort the projects by date, putting those without dates last
-        {% endcomment %}
-        {% assign projects_by_date = site.projects | sort: 'last-updated', 'first' %}
-        {% assign projects_by_date = projects_by_date | reverse %}
-        {% for p in projects_by_date %}
-            {% if p.status != "inactive" %}
-                {% include project-card.html project=p %}
-            {% endif %}
-        {% endfor %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">University of Vermont · Research collaboration</p>
+    <h1>Making differential privacy understandable, accountable, and practical.</h1>
+    <p class="hero-lede">Differential privacy offers rigorous protection for people whose data are used in analysis. We study how practitioners configure privacy systems, how organizations communicate their guarantees, and how different audiences understand the resulting protections.</p>
+    <div class="button-row">
+      <a class="button button-primary" href="{{ '/research.html' | relative_url }}">Explore our research</a>
+      <a class="button button-secondary" href="{{ '/people/' | relative_url }}">Meet the researchers</a>
     </div>
+  </div>
 </section>
 
-<div id="people">
-    <h2>People</h2>
-    {% for role-table in page.role-tables %}
-        <section class="people row justify-content-between">
-            {% for role-column in role-table %}
-                <div class="col-md-{{ role-column.width }}">
-                    {% for role in role-column.roles %}
-                        {% include role-people.html role=role image=role-column.image %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </section>
+<section class="section-block" aria-labelledby="about-heading">
+  <div class="section-heading split-heading">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2 id="about-heading">Connecting technical guarantees with human decisions</h2>
+    </div>
+    <div class="about-copy">
+      <p>Usable Differential Privacy at UVM brings together researchers in differential privacy, human-computer interaction, security, formal methods, and responsible data use.</p>
+      <p>Led by faculty principal investigators Dr. Joseph Near and Dr. Yuanyuan Feng, our group examines the tools, explanations, and institutional practices needed to deploy differential privacy responsibly.</p>
+      <a class="text-link" href="{{ '/people/' | relative_url }}">Meet the researchers <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section-block recent-work" aria-labelledby="recent-heading">
+  <div class="section-heading section-heading-row">
+    <div>
+      <p class="eyebrow">Recent work</p>
+      <h2 id="recent-heading">Recent publications</h2>
+    </div>
+    <a class="text-link" href="{{ '/publications.html' | relative_url }}">View all publications <span aria-hidden="true">→</span></a>
+  </div>
+  {% assign recent_publications = site.data.publications | where: 'recent', true %}
+  {% if recent_publications.size > 0 %}
+    <div class="publication-list compact-list">
+      {% assign recent_publications = recent_publications | sort: 'year' | reverse %}
+      {% for publication in recent_publications %}
+        {% include publication.html publication=publication %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <p>Publication records are being prepared. This section will highlight the collaboration’s newest work.</p>
+    </div>
+  {% endif %}
+</section>
+
+<aside class="funding-callout" aria-labelledby="funding-heading">
+  <div class="funding-heading">
+    <p class="eyebrow">Research support</p>
+    <h2 id="funding-heading">Supported by the National Science Foundation</h2>
+  </div>
+  <div class="funding-awards">
+    {% for award in site.data.awards %}
+      <article class="funding-award">
+        <h3><a href="{{ award.url }}" target="_blank" rel="noopener noreferrer" aria-label="View NSF Award {{ award.number }} in a new tab">NSF Award {{ award.number }} <span aria-hidden="true">↗</span></a></h3>
+        <p class="funding-award-title">{{ award.short_title }}</p>
+        <p class="funding-award-meta">{{ award.investigators }} · {{ award.period }}</p>
+      </article>
     {% endfor %}
-</div>
+  </div>
+</aside>

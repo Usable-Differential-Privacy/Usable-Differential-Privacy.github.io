@@ -1,9 +1,47 @@
 ---
-layout: default
 title: Publications
+eyebrow: Research outputs
+intro: Research from the Usable Differential Privacy collaboration examines how differential privacy is implemented, understood, and communicated. Our work combines empirical studies, synthesis of prior research, and human-centered design to identify barriers to adoption and develop more transparent and usable privacy practices.
+permalink: /publications.html
 ---
-<p>
-    <a href="{{ site.base }}/bib/pubs.bib">Download BibTeX.</a>
-</p>
 
-{% include pubs.html %}
+{% if site.data.publications.size > 0 %}
+  <div class="publication-tools" aria-label="Publication filters">
+    <label class="search-field">
+      <span>Search publications</span>
+      <input id="publication-search" type="search" placeholder="Title, author, or venue" autocomplete="off">
+    </label>
+    <label>
+      <span>Type</span>
+      <select id="publication-type">
+        <option value="all">All types</option>
+        {% assign types = site.data.publications | map: 'type' | uniq | sort %}
+        {% for type in types %}<option value="{{ type | slugify }}">{{ type }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>
+      <span>Year</span>
+      <select id="publication-year">
+        <option value="all">All years</option>
+        {% assign years = site.data.publications | map: 'year' | uniq | sort | reverse %}
+        {% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+      </select>
+    </label>
+  </div>
+
+  <p id="publication-count" class="results-count" aria-live="polite"></p>
+  <div id="publication-list" class="publication-list">
+    {% assign publications = site.data.publications | sort: 'year' | reverse %}
+    {% for publication in publications %}
+      {% include publication.html publication=publication %}
+    {% endfor %}
+  </div>
+  <p id="publication-empty" class="empty-state" hidden>No publications match these filters.</p>
+  <script src="{{ '/js/publications.js' | relative_url }}" defer></script>
+{% else %}
+  <div class="empty-state large-empty-state">
+    <p class="eyebrow">Collection in progress</p>
+    <h2>Publication records are coming soon.</h2>
+    <p>Add entries to <code>_data/publications.yml</code>; this page will automatically organize them by year and enable search and filtering.</p>
+  </div>
+{% endif %}

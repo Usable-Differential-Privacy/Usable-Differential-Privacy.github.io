@@ -1,0 +1,13 @@
+{% assign publication = include.publication %}
+<article class="publication-item" data-publication data-year="{{ publication.year }}" data-type="{{ publication.type | slugify }}" data-search="{{ publication.title | append: ' ' | append: publication.authors | append: ' ' | append: publication.venue | append: ' ' | append: publication.summary | downcase | escape }}">
+  <div class="publication-year">{{ publication.year }}</div>
+  <div>
+    <p class="publication-meta">{{ publication.type }}{% if publication.venue %} · {{ publication.venue }}{% endif %}</p>
+    <h2>{{ publication.title }}</h2>
+    <p class="publication-authors">{{ publication.authors }}</p>
+    {% if publication.summary %}<p>{{ publication.summary }}</p>{% endif %}
+    {% if publication.url %}
+      <a class="publication-link" href="{{ publication.url }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ publication.title }} in a new tab">View publication <span aria-hidden="true">↗</span></a>
+    {% endif %}
+  </div>
+</article>
