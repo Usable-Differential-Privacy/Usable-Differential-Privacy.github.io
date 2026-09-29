@@ -21,17 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install bibble
-        run: pip install bibble
-
-      - name: Generate pubs.html
-        run: bibble bib/pubs.bib bib/publications.tmpl > _includes/pubs.html
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

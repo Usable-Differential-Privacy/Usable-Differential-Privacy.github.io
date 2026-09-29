@@ -1,0 +1,19 @@
+- type: Software
+  title: Research software
+  description: Open-source tools and prototypes developed by the collaboration will be collected here.
+
+- type: Datasets
+  title: Research data
+  description: Public datasets, study materials, and documentation will be shared when available.
+
+- type: Talks
+  title: Talks and presentations
+  description: Slides, recordings, and invited presentations about usable differential privacy will appear here.
+
+- type: Teaching
+  title: Teaching materials
+  description: Lectures, exercises, and course materials for learning about usable differential privacy will be added here.
+
+- type: Explainers
+  title: Public-facing explanations
+  description: Accessible introductions to differential privacy concepts, choices, and tradeoffs will be published here.

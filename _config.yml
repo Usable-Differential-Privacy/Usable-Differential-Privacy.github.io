@@ -1,53 +1,45 @@
-name: Awesome Research Group
-url: https://usable-differential-privacy.github.io/
+name: Usable Differential Privacy at UVM
+short_name: UDP @ UVM
+description: Human-centered research on making differential privacy understandable, useful, and usable in practice.
+url: https://usable-differential-privacy.github.io
+baseurl: ""
+base: ""
 
-exclude: [bibble, README.md, Makefile, screenshot.png]
+permalink: /news/:year/:month/:day/:title/
 
-# colorize code snippets with the pygments module
-highlighter: pygments
-
-# The path structure for blog posts.
-permalink: /blog/:year/:month/:day/:title.html
-
-# Sections on the "people" page.
 roles:
   - key: faculty
-    name: Faculty
-  - key: staff
-    name: Staff
-  - key: postdoc
-    name: Researchers
+    name: Faculty Principal Investigators
   - key: grad
-    name: Graduate Students
-  - key: ugrad
-    name: Undergraduate Students
-  - key: ugrad-alum
-    name: Past Undergraduate Students
-  - key: collab
-    name: Collaborators
-  - key: alum
-    name: Alumni
+    name: PhD Students
 
-# Number of news stories on the front page.
-front_page_news: 8
-
-# Base pathname for links.
-base: ''
-
-# make pages for the _projects folder
 collections:
-  projects:
-    output: true
+  research:
+    output: false
 
-# Navigation bar links.
 navigation:
   - title: Home
     link: /
   - title: People
-    link: /#people
+    link: /people/
   - title: Research
     link: /research.html
   - title: Publications
     link: /publications.html
-  - title: Code
-    link: /code.html
+  - title: Resources
+    link: /resources.html
+
+exclude:
+  - README.md
+  - Makefile
+  - screenshot.png
+  - LICENSE
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

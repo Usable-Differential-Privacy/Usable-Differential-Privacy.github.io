@@ -1,0 +1,30 @@
+- id: dp-label-2026
+  recent: true
+  title: "“We Need a Standard”: Toward an Expert–Informed Privacy Label for Differential Privacy"
+  authors: "Onyinye Dibia, Mengyi Lu, Prianka Bhattacharjee, Joseph Near, and Yuanyuan Feng"
+  year: 2026
+  type: Journal article
+  venue: Proceedings on Privacy Enhancing Technologies, Issue 1
+  url: https://petsymposium.org/popets/2026/popets-2026-0004.php
+  summary: >-
+    Based on interviews with 12 differential privacy experts, this study investigates what organizations should disclose when communicating the privacy guarantees of a differential privacy deployment. It identifies information needed to support informed interpretation and explores how layered privacy labels could present technical details to audiences with different levels of expertise. The findings provide a foundation for more consistent disclosure practices intended to improve transparency and trust.
+
+- id: usability-sok-2025
+  title: "SoK: Usability Studies in Differential Privacy"
+  authors: "Onyinye Dibia, Prianka Bhattacharjee, Brad Stenger, Steven Baldasty, Mako Bates, Ivoline Ngong, Yuanyuan Feng, and Joseph Near"
+  year: 2025
+  type: Journal article
+  venue: Proceedings on Privacy Enhancing Technologies, Issue 4
+  url: https://petsymposium.org/popets/2025/popets-2025-0162.php
+  summary: >-
+    This systematization organizes prior usability research on differential privacy around two connected challenges: helping people use differential privacy tools and helping them understand how privacy guarantees are communicated. It identifies recurring usability problems, summarizes promising practices, and highlights open research questions affecting developers, data practitioners, and nontechnical stakeholders. The paper provides a shared foundation for future human-centered research on differential privacy.
+
+- id: dp-tools-2024
+  title: Evaluating the Usability of Differential Privacy Tools with Data Practitioners
+  authors: "Ivoline C. Ngong, Brad Stenger, Joseph P. Near, and Yuanyuan Feng"
+  year: 2024
+  type: Conference paper
+  venue: Twentieth Symposium on Usable Privacy and Security (SOUPS 2024)
+  url: https://www.usenix.org/conference/soups2024/presentation/ngong
+  summary: >-
+    This empirical study evaluates four open-source Python differential privacy tools with 24 data practitioners in the United States. It examines how effectively the tools support practitioners as they learn about differential privacy and attempt to apply it in realistic analytical work. Based on the study's findings, the paper offers evidence-based recommendations for improving tool usability and helping practitioners implement differential privacy with greater understanding and confidence.

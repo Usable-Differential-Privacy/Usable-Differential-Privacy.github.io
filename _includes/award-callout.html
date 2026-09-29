@@ -1,0 +1,7 @@
+{% assign award = include.award %}
+<aside class="award-callout">
+  <p class="eyebrow">Research support</p>
+  <h3><a href="{{ award.url }}" target="_blank" rel="noopener noreferrer" aria-label="View NSF Award {{ award.number }} in a new tab">NSF Award {{ award.number }} <span aria-hidden="true">↗</span></a></h3>
+  <p class="award-title">{{ award.short_title }}</p>
+  <p class="award-meta">{{ award.investigators }} · {{ award.period }}</p>
+</aside>

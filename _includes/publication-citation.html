@@ -1,0 +1,5 @@
+{% assign publication = include.publication %}
+<article class="research-publication">
+  <h3><a href="{{ publication.url }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a></h3>
+  <p>{{ publication.venue }}, {{ publication.year }}</p>
+</article>
