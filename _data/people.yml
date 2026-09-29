@@ -1,16 +1,3 @@
-joseph-near:
-  display_name: Dr. Joseph Near
-  title: Associate Professor of Computer Science
-  institution: University of Vermont
-  role: faculty
-  image: /img/people/joseph-near.jpg
-  bio: Joseph Near studies data privacy, especially differential privacy, along with computer security, secure and verified computation, fairness, programming languages, and machine learning.
-  links:
-    - label: Professional website
-      url: https://www.uvm.edu/~jnear/
-    - label: UVM profile
-      url: https://www.uvm.edu/cems/cs/profile/joseph-near
-
 yuanyuan-feng:
   display_name: Dr. Yuanyuan Feng
   title: Assistant Professor of Computer Science
@@ -23,6 +10,19 @@ yuanyuan-feng:
       url: https://yuanyuanfeng.com/
     - label: UVM profile
       url: https://www.uvm.edu/cems/cs/profile/yuanyuan-feng
+
+joseph-near:
+  display_name: Dr. Joseph Near
+  title: Associate Professor of Computer Science
+  institution: University of Vermont
+  role: faculty
+  image: /img/people/joseph-near.jpg
+  bio: Joseph Near studies data privacy, especially differential privacy, along with computer security, secure and verified computation, fairness, programming languages, and machine learning.
+  links:
+    - label: Professional website
+      url: https://www.uvm.edu/~jnear/
+    - label: UVM profile
+      url: https://www.uvm.edu/cems/cs/profile/joseph-near
 
 onyinye-dibia:
   display_name: Onyinye Dibia
@@ -43,3 +43,13 @@ mengyi-lu:
   links:
     - label: Google Scholar
       url: https://scholar.google.com/citations?user=_JkHUTYAAAAJ&hl=en&oi=ao
+
+prianka-bhattacharjee:
+  display_name: Prianka Bhattacharjee
+  title: Doctoral Student in Computer Science
+  institution: University of Vermont
+  role: grad
+  initials: PB
+  links:
+    - label: Google Scholar
+      url: https://scholar.google.com/citations?hl=en&user=r-aZWsUAAAAJ
